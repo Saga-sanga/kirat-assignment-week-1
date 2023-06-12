@@ -4,6 +4,7 @@
   },
   "scripts": {
     "test-anagram": "jest ./tests/anagram.test.js",
-    "test-expenditure-analysis": "jest ./tests/expenditure.test.js"
+    "test-expenditure-analysis": "jest ./tests/expenditure.test.js",
+    "test-palindrome": "jest ./tests/palindrome.test.js"
   }
 }
