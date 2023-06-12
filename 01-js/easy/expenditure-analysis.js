@@ -9,7 +9,22 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  return transactions.reduce((accumulator, transaction) => {
+    // check if category already exists in array if not initialise object
+    if (!accumulator.some(element => element.category === transaction.category)) {
+      accumulator.push({
+        category: transaction.category,
+        totalSpent: 0
+      })
+    }
+
+    for (const element of accumulator) {
+      if (element.category === transaction.category) {
+        element.totalSpent += transaction.price;
+      }
+    }
+    return accumulator;
+  },[]);
 }
 
 module.exports = calculateTotalSpentByCategory;
