@@ -9,7 +9,16 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const expense = transactions.reduce((accumulator, transaction) => {
+    if (!accumulator.hasOwnProperty(transaction.category)) {
+      accumulator[transaction.category] = 0;
+    }
+
+    accumulator[transaction.category] += transaction.price;
+    return accumulator;
+  }, {});
+
+  return Object.entries(expense).map(([key, value]) => ({[key]: value}));
 }
 
 module.exports = calculateTotalSpentByCategory;
